@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - AirTiles
+  - WoodenTiles
+  - HiddenScoreTiles
+  - Pipe
+  - HardTiles
+  - MystryTiles
+  - Enemy
+  - Base
+  - Top
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - PlayerExtra
+  - background
+  - pipe
+  - ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: background
+    uniqueID: 1090413409
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
