@@ -28,7 +28,7 @@ TagManager:
   - background
   - pipe
   - ground
-  - 
+  - PlantEnemy
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: backfround_1
+    uniqueID: 3038575361
+    locked: 0
   - name: background
     uniqueID: 1090413409
     locked: 0
