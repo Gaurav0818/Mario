@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7255241024631205895}
   - component: {fileID: 7857568019372058533}
   - component: {fileID: -2495394838289130156}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hiddenScoreTile
   m_TagString: HiddenScoreTiles
   m_Icon: {fileID: 0}

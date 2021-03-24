@@ -6,11 +6,11 @@ public class BasicPlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
     
-
     public float jumpForce;
     public float jumpUpMagnituide;
     public float jumpDownMagnitude;
-    public bool isGrounded;
+    public float distanceFromGround;
+
     public float jumpTime;
     private float jumpTimeCounter;
     private bool isJump;
@@ -22,8 +22,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public IsGrounded checkGrounded;
 
     void Start()
-    {
-       
+    {  
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -50,8 +49,7 @@ public class BasicPlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
-        
+        Move();   
         JumpGravity();
     }
 
@@ -64,26 +62,19 @@ public class BasicPlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        isGrounded = checkGrounded.isGrounded;
-        /*if (isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            float jumpVelocity = 10f;
-            rb.velocity = Vector2.up * jumpVelocity;
-        }*/
         jumpTimeCounter = jumpTime;
         
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W)))
+        if (IsGrounded() && (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W)))
         {
             isJump = true;
             rb.velocity = Vector2.up * jumpForce;
-            //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            
         }
         if (isJump == true && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)))
         {
             if (jumpTimeCounter > 0)
             {
                 rb.velocity = Vector2.up * jumpForce;
-                //rb.AddForce(Vector2.up * jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
             isJump = false;
@@ -105,6 +96,36 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             rb.gravityScale = jumpDownMagnitude;
         }
+    }
+
+    public LayerMask groundLayer;
+    public float angle1;
+    public float angle2;
+
+    bool IsGrounded()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+        Vector2 direction1 = new Vector2(Mathf.Cos(angle1 * Mathf.Deg2Rad), Mathf.Sin(angle1 * Mathf.Deg2Rad)).normalized;
+        Vector2 direction2 = new Vector2(Mathf.Cos(angle2 * Mathf.Deg2Rad), Mathf.Sin(angle2 * Mathf.Deg2Rad)).normalized;
+        
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        RaycastHit2D hit1 = Physics2D.Raycast(position, direction1 , distance, groundLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(position, direction2 , distance, groundLayer);
+
+        if (hit.collider != null )
+        {
+            return true;
+        }else if (hit1.collider!=null)
+        {
+            return true;
+        }else if (hit2.collider != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5875654941685112752}
   - component: {fileID: 6354295640003381266}
   - component: {fileID: 1384279948580472923}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodenTiles
   m_TagString: WoodenTiles
   m_Icon: {fileID: 0}

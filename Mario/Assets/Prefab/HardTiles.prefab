@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4748343696621405215}
   - component: {fileID: 4268225854153804982}
   - component: {fileID: 8937818761407242283}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HardTiles
   m_TagString: HardTiles
   m_Icon: {fileID: 0}
