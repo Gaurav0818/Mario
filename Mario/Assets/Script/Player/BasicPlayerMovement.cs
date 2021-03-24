@@ -19,7 +19,6 @@ public class BasicPlayerMovement : MonoBehaviour
     public float horizontal;
 
     public Rigidbody2D rb;
-    public IsGrounded checkGrounded;
 
     void Start()
     {  
@@ -68,8 +67,8 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             isJump = true;
             rb.velocity = Vector2.up * jumpForce;
-            
         }
+
         if (isJump == true && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)))
         {
             if (jumpTimeCounter > 0)
@@ -79,6 +78,7 @@ public class BasicPlayerMovement : MonoBehaviour
             }
             isJump = false;
         }
+
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJump = false;
@@ -92,10 +92,12 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             rb.gravityScale = jumpUpMagnituide;
         }
+
         if (rb.velocity.y < 0)
         {
             rb.gravityScale = jumpDownMagnitude;
         }
+
     }
 
     public LayerMask groundLayer;
@@ -117,10 +119,12 @@ public class BasicPlayerMovement : MonoBehaviour
         if (hit.collider != null )
         {
             return true;
-        }else if (hit1.collider!=null)
+        }
+        else if (hit1.collider!=null)
         {
             return true;
-        }else if (hit2.collider != null)
+        }
+        else if (hit2.collider != null)
         {
             return true;
         }
