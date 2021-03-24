@@ -4305,6 +4305,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358e3c58193923448b2c1d22c0f4a5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &266702660
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266702653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aafee3eccc940744a92afe84baf28632, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &267730258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7024632220725997754, guid: 07f1a6b964f975741a8863213f1a5fd2,
@@ -13383,7 +13402,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!61 &779365611
 BoxCollider2D:
   m_ObjectHideFlags: 0
