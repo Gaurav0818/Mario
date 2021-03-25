@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class KillEnemy : MonoBehaviour
 {
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
 

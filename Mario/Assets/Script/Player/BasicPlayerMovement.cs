@@ -19,7 +19,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public float horizontal;
 
     public Rigidbody2D rb;
-    public IsGrounded checkGrounded;
+    public Animator animator;
 
     void Start()
     {  
@@ -31,10 +31,38 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         ReadInput();
         Jump();
+        ForAnimation();
+
+    }
+
+    
+    void ForAnimation()
+    {
+        if (horizontal!= 0  && rb.velocity.y == 0)
+            animator.SetBool("IsRunning", true);
+        else
+            animator.SetBool("IsRunning", false);
+
+        if (rb.velocity.y > 0)
+            animator.SetBool("IsJumping", true);
+        else
+            animator.SetBool("IsJumping", false);
+
+        if (rb.velocity.y < 0)
+            animator.SetBool("IsFalling", true);
+        else
+            animator.SetBool("IsFalling", false);
+
+        if (IsGrounded() == true)
+        {
+            animator.SetBool("IsFalling", false);
+            animator.SetBool("IsJumping", false);
+        }
     }
 
 
     void ReadInput() {
+        horizontal = 0;
         horizontal = Input.GetAxis("Horizontal");
         if (horizontal > 0)
         {
@@ -56,6 +84,7 @@ public class BasicPlayerMovement : MonoBehaviour
 
     private void Move()
     {
+
         rb.transform.position += new Vector3(horizontal * movementSpeed * Time.deltaTime, 0, 0);
     }
 
@@ -79,6 +108,7 @@ public class BasicPlayerMovement : MonoBehaviour
             }
             isJump = false;
         }
+      
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJump = false;
