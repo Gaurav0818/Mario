@@ -21,6 +21,9 @@ public class BasicPlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    float idleTimeCounter = 0f;
+    bool idleCounterStart = false;
+
     public AudioSource jumpAudio;
 
     void Start()
@@ -42,17 +45,32 @@ public class BasicPlayerMovement : MonoBehaviour
     void ForAnimation()
     {
         if (horizontal != 0 && rb.velocity.y == 0)
+        {
+            idleCounterStart = false;
+            animator.SetBool("IsIdle", false);
+
             animator.SetBool("IsRunning", true);
+        }   
         else
             animator.SetBool("IsRunning", false);
 
         if (rb.velocity.y > 0)
+        {
+            idleCounterStart = false;
+            animator.SetBool("IsIdle", false);
+
             animator.SetBool("IsJumping", true);
+        }   
         else
             animator.SetBool("IsJumping", false);
 
         if (rb.velocity.y < 0)
+        {
+            idleCounterStart = false;
+            animator.SetBool("IsIdle", false);
+
             animator.SetBool("IsFalling", true);
+        }
         else
             animator.SetBool("IsFalling", false);
 
@@ -60,6 +78,25 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsFalling", false);
             animator.SetBool("IsJumping", false);
+        }
+
+
+        if(IsGrounded()==true && horizontal == 0)
+        {
+            if (idleCounterStart == false)
+            {
+                idleTimeCounter = 2.0f;
+                idleCounterStart = true;
+            }
+        }
+
+        if (idleCounterStart == true)
+        {
+            idleTimeCounter = idleTimeCounter - Time.deltaTime;
+        }
+        if (idleTimeCounter < 0 && idleCounterStart == true)
+        {
+            animator.SetBool("IsIdle", true);
         }
     }
 
