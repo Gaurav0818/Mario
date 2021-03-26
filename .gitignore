@@ -14,6 +14,7 @@ sysinfo.txt
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
+.meta
 
 ###
 # VS/MD solution and project files
