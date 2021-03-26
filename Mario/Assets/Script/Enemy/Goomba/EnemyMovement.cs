@@ -17,4 +17,21 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.transform.position = rb.transform.position += new Vector3(enemySpeed * Time.deltaTime, 0, 0);
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            transform.eulerAngles += new Vector3(0, 180, 0);
+            enemySpeed *= -1;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        transform.eulerAngles += new Vector3(0, 180, 0);
+        enemySpeed *= -1;
+        
+
+    }
 }
