@@ -29,6 +29,7 @@ public class BasicPlayerMovement : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("Speed", 0.0f);
         ReadInput();
         Jump();
         ForAnimation();
@@ -38,7 +39,7 @@ public class BasicPlayerMovement : MonoBehaviour
     
     void ForAnimation()
     {
-        if (horizontal!= 0  && rb.velocity.y == 0)
+        if (horizontal != 0 && rb.velocity.y == 0)
             animator.SetBool("IsRunning", true);
         else
             animator.SetBool("IsRunning", false);
@@ -67,10 +68,12 @@ public class BasicPlayerMovement : MonoBehaviour
         if (horizontal > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            animator.SetFloat("Speed", Mathf.Abs(movementSpeed));
         }
         else if (horizontal == -1)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
+            animator.SetFloat("Speed", Mathf.Abs(movementSpeed));
         }
     }
 
@@ -84,8 +87,8 @@ public class BasicPlayerMovement : MonoBehaviour
 
     private void Move()
     {
-
         rb.transform.position += new Vector3(horizontal * movementSpeed * Time.deltaTime, 0, 0);
+        
     }
 
 
@@ -154,9 +157,6 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             return true;
         }
-
         return false;
     }
-
-
 }
