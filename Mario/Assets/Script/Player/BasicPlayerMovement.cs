@@ -21,6 +21,8 @@ public class BasicPlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    public AudioSource jumpAudio;
+
     void Start()
     {  
         rb = GetComponent<Rigidbody2D>();
@@ -100,6 +102,7 @@ public class BasicPlayerMovement : MonoBehaviour
         {
             isJump = true;
             rb.velocity = Vector2.up * jumpForce;
+            jumpAudio.Play();
             
         }
         if (isJump == true && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)))
