@@ -10,6 +10,7 @@ public class KillEnemyWhenJumpOnTop : MonoBehaviour
         {
             ObjectWithTrigger.gameObject.GetComponent<EnemyMovement>().top = true;
             Destroy(ObjectWithTrigger.gameObject);
+            FindObjectOfType<Score>().score += 200;
         }
     }
 }
