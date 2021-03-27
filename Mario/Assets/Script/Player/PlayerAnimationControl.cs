@@ -7,8 +7,20 @@ public class PlayerAnimationControl : MonoBehaviour
     public Animator animator;
     float idleTimeCounter = 0f;
     bool idleCounterStart = false;
+    public bool isFlag = false;
+    public AudioSource flagAudio;
     void Update()
     {
+        if (isFlag == true)
+        {
+            flagAudio.Play();
+            animator.SetBool("IsFlag", true);
+        }
+        if(isFlag == false)
+        {
+            animator.SetBool("IsFlag", false);
+        }
+
         if (GetComponent<BasicPlayerMovement>().isDead == true)
         {
             animator.SetBool("IsDead", true);

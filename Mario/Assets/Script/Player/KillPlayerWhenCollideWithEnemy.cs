@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
 {
+    public AudioSource playerDie;
+    public AudioSource mainAudio;
+    public LayerMask plant;
     private void OnCollisionEnter2D(Collision2D other)
     {
 
@@ -11,7 +14,19 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
         {
             gameObject.GetComponent<BasicPlayerMovement>().isDead = true;
             Debug.Log(other.gameObject.tag);
-            Destroy(gameObject,0.5f);
+            mainAudio.Stop();
+            playerDie.Play();
+            if (other.gameObject.layer == plant)
+            {
+                other.gameObject.GetComponent<PiranhaMovement>().enabled=false;
+            }
+            else
+            {
+                other.gameObject.GetComponent<EnemyMovement>().enemySpeed = 0;
+            }
+            other.gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<BasicPlayerMovement>().enabled = false;
+            Destroy(gameObject,3f);   
         }
 
     }
