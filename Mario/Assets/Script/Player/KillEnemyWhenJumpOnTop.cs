@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class KillEnemyWhenJumpOnTop : MonoBehaviour
 {
+    public string Ename="null";
+    
     void OnTriggerEnter2D(Collider2D ObjectWithTrigger)
     {
-        if (ObjectWithTrigger.gameObject.tag == "Enemy" )
+        if (ObjectWithTrigger.gameObject.CompareTag("Enemy") )
         {
-            ObjectWithTrigger.gameObject.GetComponent<EnemyMovement>().top = true;
-            Destroy(ObjectWithTrigger.gameObject);
+            ObjectWithTrigger.gameObject.GetComponent<EnemyMovement>().isDead=true;
+            Ename = ObjectWithTrigger.name;
+            Destroy(ObjectWithTrigger.gameObject,2f);
             FindObjectOfType<Score>().score += 200;
         }
     }

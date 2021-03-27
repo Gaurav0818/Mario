@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4555389814441284344
+--- !u!1 &7262463709820777181
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6089709064623505322}
-  - component: {fileID: 4555389814441284324}
-  - component: {fileID: 4555389814441284325}
-  - component: {fileID: 4555389814441284326}
-  - component: {fileID: 4555389814441284327}
-  - component: {fileID: 4555389814441284323}
-  - component: {fileID: 4555389814441284320}
+  - component: {fileID: 1115894916851848632}
+  - component: {fileID: 7262463709820777179}
+  - component: {fileID: 7262463709820777176}
+  - component: {fileID: 7262463709820777177}
+  - component: {fileID: 7262463709820777182}
+  - component: {fileID: 7262463709820777183}
+  - component: {fileID: 7262463709820777180}
   m_Layer: 0
   m_Name: Goomba
   m_TagString: Enemy
@@ -22,13 +22,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6089709064623505322
+--- !u!4 &1115894916851848632
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.97, y: 2.2022936, z: 204.37633}
   m_LocalScale: {x: 4, y: 4, z: 1}
@@ -36,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4555389814441284324
+--- !u!212 &7262463709820777179
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4555389814441284325
+--- !u!61 &7262463709820777176
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -113,14 +113,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17, y: 0.16409394}
   m_EdgeRadius: 0
---- !u!50 &4555389814441284326
+--- !u!50 &7262463709820777177
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -132,28 +132,29 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
---- !u!114 &4555389814441284327
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &7262463709820777182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee8cfcb1d2a0c644ab9106f84f39e2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
---- !u!61 &4555389814441284323
+  top: 0
+--- !u!61 &7262463709820777183
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -173,14 +174,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15009475, y: 0.024343193}
   m_EdgeRadius: 0
---- !u!95 &4555389814441284320
+--- !u!95 &7262463709820777180
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555389814441284344}
+  m_GameObject: {fileID: 7262463709820777181}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4aa17e8fbc37a57499812033ec75deb4, type: 2}
