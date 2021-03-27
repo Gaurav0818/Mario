@@ -18,13 +18,16 @@ public class BasicPlayerMovement : MonoBehaviour
     private Vector3 movementForce;
     public float horizontal;
 
+    public bool isDead;
+
     public Rigidbody2D rb;
     
 
     public AudioSource jumpAudio;
 
     void Start()
-    {  
+    {
+        isDead = false;
         rb = GetComponent<Rigidbody2D>();
     }
 

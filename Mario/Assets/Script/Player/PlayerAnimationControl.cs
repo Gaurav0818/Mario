@@ -9,7 +9,10 @@ public class PlayerAnimationControl : MonoBehaviour
     bool idleCounterStart = false;
     void Update()
     {
-
+        if (GetComponent<BasicPlayerMovement>().isDead == true)
+        {
+            animator.SetBool("IsDead", true);
+        }
         if (FindObjectOfType<BasicPlayerMovement>().horizontal != 0)
         {
             animator.SetFloat("Speed", Mathf.Abs(FindObjectOfType<BasicPlayerMovement>().movementSpeed));

@@ -9,8 +9,9 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
 
         if (other.gameObject.tag=="Enemy" && FindObjectOfType<KillEnemyWhenJumpOnTop>().Ename != other.gameObject.name)
         {
+            gameObject.GetComponent<BasicPlayerMovement>().isDead = true;
             Debug.Log(other.gameObject.tag);
-            Destroy(gameObject);
+            Destroy(gameObject,0.5f);
         }
 
     }
