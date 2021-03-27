@@ -19,10 +19,7 @@ public class BasicPlayerMovement : MonoBehaviour
     public float horizontal;
 
     public Rigidbody2D rb;
-    public Animator animator;
-
-    float idleTimeCounter = 0f;
-    bool idleCounterStart = false;
+    
 
     public AudioSource jumpAudio;
 
@@ -34,86 +31,15 @@ public class BasicPlayerMovement : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("Speed", 0.0f);
+        
         ReadInput();
         Jump();
-        ForAnimation();
 
     }
-
-    
-    void ForAnimation()
-    {
-        if (horizontal != 0 && rb.velocity.y == 0)
-        {
-            idleCounterStart = false;
-            animator.SetBool("IsIdle", false);
-
-            animator.SetBool("IsRunning", true);
-        }   
-        else
-            animator.SetBool("IsRunning", false);
-
-        if (rb.velocity.y > 0)
-        {
-            idleCounterStart = false;
-            animator.SetBool("IsIdle", false);
-
-            animator.SetBool("IsJumping", true);
-        }   
-        else
-            animator.SetBool("IsJumping", false);
-
-        if (rb.velocity.y < 0)
-        {
-            idleCounterStart = false;
-            animator.SetBool("IsIdle", false);
-
-            animator.SetBool("IsFalling", true);
-        }
-        else
-            animator.SetBool("IsFalling", false);
-
-        if (IsGrounded() == true)
-        {
-            animator.SetBool("IsFalling", false);
-            animator.SetBool("IsJumping", false);
-        }
-
-
-        if(IsGrounded()==true && horizontal == 0)
-        {
-            if (idleCounterStart == false)
-            {
-                idleTimeCounter = 2.0f;
-                idleCounterStart = true;
-            }
-        }
-
-        if (idleCounterStart == true)
-        {
-            idleTimeCounter = idleTimeCounter - Time.deltaTime;
-        }
-        if (idleTimeCounter < 0 && idleCounterStart == true)
-        {
-            animator.SetBool("IsIdle", true);
-        }
-    }
-
 
     void ReadInput() {
         horizontal = 0;
-        horizontal = Input.GetAxis("Horizontal");
-        if (horizontal > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            animator.SetFloat("Speed", Mathf.Abs(movementSpeed));
-        }
-        else if (horizontal == -1)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            animator.SetFloat("Speed", Mathf.Abs(movementSpeed));
-        }
+        horizontal = Input.GetAxis("Horizontal");  
     }
 
 
@@ -126,6 +52,15 @@ public class BasicPlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (horizontal > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (horizontal == -1)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
         rb.transform.position += new Vector3(horizontal * movementSpeed * Time.deltaTime, 0, 0);
         
     }
@@ -135,7 +70,7 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         jumpTimeCounter = jumpTime;
         
-        if (IsGrounded() && (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W)))
+        if (FindObjectOfType<CheckGround>().IsGrounded() && (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W)))
         {
             isJump = true;
             rb.velocity = Vector2.up * jumpForce;
@@ -171,32 +106,5 @@ public class BasicPlayerMovement : MonoBehaviour
         }
     }
 
-    public LayerMask groundLayer;
-    public float angle1;
-    public float angle2;
-
-    bool IsGrounded()
-    {
-        Vector2 position = transform.position;
-        Vector2 direction = Vector2.down;
-        float distance = 1.0f;
-        Vector2 direction1 = new Vector2(Mathf.Cos(angle1 * Mathf.Deg2Rad), Mathf.Sin(angle1 * Mathf.Deg2Rad)).normalized;
-        Vector2 direction2 = new Vector2(Mathf.Cos(angle2 * Mathf.Deg2Rad), Mathf.Sin(angle2 * Mathf.Deg2Rad)).normalized;
-        
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        RaycastHit2D hit1 = Physics2D.Raycast(position, direction1 , distance, groundLayer);
-        RaycastHit2D hit2 = Physics2D.Raycast(position, direction2 , distance, groundLayer);
-
-        if (hit.collider != null )
-        {
-            return true;
-        }else if (hit1.collider!=null)
-        {
-            return true;
-        }else if (hit2.collider != null)
-        {
-            return true;
-        }
-        return false;
-    }
+    
 }
