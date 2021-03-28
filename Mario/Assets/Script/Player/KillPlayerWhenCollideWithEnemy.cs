@@ -16,18 +16,26 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
             Debug.Log(other.gameObject.tag);
             mainAudio.Stop();
             playerDie.Play();
-            if (other.gameObject.layer == plant)
-            {
-                other.gameObject.GetComponent<PiranhaMovement>().enabled=false;
-            }
-            else
-            {
-                other.gameObject.GetComponent<EnemyMovement>().enemySpeed = 0;
-            }
             other.gameObject.GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<BasicPlayerMovement>().enabled = false;
-            Destroy(gameObject,3f);   
+            Destroy(gameObject, 3f);
+            other.gameObject.GetComponent<EnemyMovement>().enemySpeed = 0;
+              
         }
+        if (other.gameObject.tag == "PlantEnemy" && FindObjectOfType<KillEnemyWhenJumpOnTop>().Ename != other.gameObject.name)
+        {
+            gameObject.GetComponent<BasicPlayerMovement>().isDead = true;
+            Debug.Log(other.gameObject.tag);
+            mainAudio.Stop();
+            playerDie.Play();
+            other.gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<BasicPlayerMovement>().enabled = false;
+            Destroy(gameObject, 3f);
+            other.gameObject.GetComponent<PiranhaMovement>().enabled = false;
+            other.gameObject.GetComponent<PiranhaMovement>().rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        }
+
 
     }
      
