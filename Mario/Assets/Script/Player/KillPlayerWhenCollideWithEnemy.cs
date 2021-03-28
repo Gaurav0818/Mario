@@ -7,6 +7,22 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
     public AudioSource playerDie;
     public AudioSource mainAudio;
     public LayerMask plant;
+    float deathTime;
+    bool StartDeathTime = false;
+
+    private void Update()
+    {
+        if (StartDeathTime == true)
+        {
+            deathTime += Time.deltaTime;
+            if (deathTime >= 3f)
+            {
+                FindObjectOfType<PlayerDead>().playerDead();
+            }
+        }
+    }
+
+
     private void OnCollisionEnter2D(Collision2D other)
     {
 
@@ -20,6 +36,7 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
             gameObject.GetComponent<BasicPlayerMovement>().enabled = false;
             Destroy(gameObject, 3f);
             other.gameObject.GetComponent<EnemyMovement>().enemySpeed = 0;
+            
               
         }
         if (other.gameObject.tag == "PlantEnemy" && FindObjectOfType<KillEnemyWhenJumpOnTop>().Ename != other.gameObject.name)
