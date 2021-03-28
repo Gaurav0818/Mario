@@ -44202,6 +44202,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 652207094}
     m_Modifications:
+    - target: {fileID: 266702656, guid: fb2c35d577b961049ae7fadfc10517c1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.19019657
+      objectReference: {fileID: 0}
+    - target: {fileID: 266702656, guid: fb2c35d577b961049ae7fadfc10517c1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.00089660287
+      objectReference: {fileID: 0}
     - target: {fileID: 266702657, guid: fb2c35d577b961049ae7fadfc10517c1, type: 3}
       propertyPath: jumpAudio
       value: 
@@ -44226,6 +44234,16 @@ PrefabInstance:
       propertyPath: bricksmsh
       value: 
       objectReference: {fileID: 1740252349}
+    - target: {fileID: 5578337259452821564, guid: fb2c35d577b961049ae7fadfc10517c1,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578337259452821564, guid: fb2c35d577b961049ae7fadfc10517c1,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1858112435
+      objectReference: {fileID: 0}
     - target: {fileID: 5578337259452821565, guid: fb2c35d577b961049ae7fadfc10517c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -44234,12 +44252,12 @@ PrefabInstance:
     - target: {fileID: 5578337259452821565, guid: fb2c35d577b961049ae7fadfc10517c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 216.7
+      value: 216.66
       objectReference: {fileID: 0}
     - target: {fileID: 5578337259452821565, guid: fb2c35d577b961049ae7fadfc10517c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.86
+      value: -1.84
       objectReference: {fileID: 0}
     - target: {fileID: 5578337259452821565, guid: fb2c35d577b961049ae7fadfc10517c1,
         type: 3}
