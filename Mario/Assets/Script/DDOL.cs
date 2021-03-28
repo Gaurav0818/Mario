@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DDOL : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float scoreDDOL;
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(FindObjectOfType<Score>() !=null)
+            scoreDDOL = FindObjectOfType<Score>().score;
     }
 }
