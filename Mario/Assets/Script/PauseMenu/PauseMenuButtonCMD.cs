@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuButtonCMD : MonoBehaviour
 {
+    public void OnResumeButtonPress()
+    {
+        FindObjectOfType<CheckifPause>().gamepause = false;
+    }
+    
     public void OnRestartButtonPress()
     {
         Scene scene = SceneManager.GetActiveScene(); 
@@ -13,6 +18,7 @@ public class PauseMenuButtonCMD : MonoBehaviour
 
     public void OnOptionButtonPress()
     {
+        
         FindObjectOfType<ifControlPressed>().option = true;
     }
     public void OnMenuButtonPress()
