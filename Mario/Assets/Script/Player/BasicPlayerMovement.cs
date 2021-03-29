@@ -73,7 +73,7 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         jumpTimeCounter = jumpTime;
         
-        if (FindObjectOfType<CheckGround>().IsGrounded() && (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W)))
+        if (FindObjectOfType<CheckGround>().IsGrounded() && (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ) )
         {
             isJump = true;
             rb.velocity = Vector2.up * jumpForce;
