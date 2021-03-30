@@ -11,7 +11,13 @@ public class LvlUpMenuFinalScore : MonoBehaviour
         displayScore = GetComponent<Text>();
         if (FindObjectOfType<DDOL>() != null)
         {
-            displayScore.text = FindObjectOfType<DDOL>().scoreDDOL.ToString("00000");
+            float score = FindObjectOfType<DDOL>().scoreDDOL;
+            float time = FindObjectOfType<DDOL>().timeDDOL;
+            float maxtime = FindObjectOfType<DDOL>().maxTime;
+            float FinalScore = score + (maxtime - time );
+
+            displayScore.text = FinalScore.ToString("00000");
+
         }
         
     }

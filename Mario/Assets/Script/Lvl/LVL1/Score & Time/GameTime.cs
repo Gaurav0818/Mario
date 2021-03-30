@@ -12,6 +12,11 @@ public class GameTime : MonoBehaviour
     }
     private void Update()
     {
-        time += Time.deltaTime;   
+        time += Time.deltaTime;
+        if (time > FindObjectOfType<MaxTime>().maxTime)
+        {
+            FindObjectOfType<TimeRunningOut>().warningAudio.Stop();
+            FindObjectOfType<PlayerDead>().StartDeathTime=true;
+        }
     }
 }
