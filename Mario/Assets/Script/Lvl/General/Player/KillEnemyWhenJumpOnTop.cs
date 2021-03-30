@@ -14,7 +14,8 @@ public class KillEnemyWhenJumpOnTop : MonoBehaviour
             ObjectWithTrigger.gameObject.GetComponent<EnemyMovement>().isDead=true;
             Ename = ObjectWithTrigger.name;
             Destroy(ObjectWithTrigger.gameObject,2f);
-            FindObjectOfType<Score>().score += 200;
+            FindObjectOfType<Score>().score += 300;
+            FindObjectOfType<ScorePrefab>().for300();
         }
     }
 }

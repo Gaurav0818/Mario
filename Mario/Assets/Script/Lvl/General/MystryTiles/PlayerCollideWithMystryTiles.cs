@@ -9,6 +9,7 @@ public class PlayerCollideWithMystryTiles : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             FindObjectOfType<Score>().score += 200;
+            FindObjectOfType<ScorePrefab>().for200();
             FindObjectOfType<DestroyMystryTiles>().ReplaceMystryTiles(this.gameObject);
         }
     }
