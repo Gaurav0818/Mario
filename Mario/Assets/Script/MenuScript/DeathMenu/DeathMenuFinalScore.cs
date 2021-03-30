@@ -10,6 +10,7 @@ public class DeathMenuFinalScore : MonoBehaviour
     private void Start()
     {
         displayScore = GetComponent<Text>();
-        displayScore.text = FindObjectOfType<DDOL>().scoreDDOL.ToString("00000");
+        if (FindObjectOfType<DDOL>() != null) 
+            displayScore.text = FindObjectOfType<DDOL>().scoreDDOL.ToString("00000");
     }
 }

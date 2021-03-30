@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFall : MonoBehaviour
+public class PlayerCollideWithMystryTiles : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerDead>().playerDead();
+            FindObjectOfType<Score>().score += 200;
+            FindObjectOfType<DestroyMystryTiles>().ReplaceMystryTiles(this.gameObject);
         }
     }
 }

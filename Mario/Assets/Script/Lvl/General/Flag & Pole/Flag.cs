@@ -8,6 +8,8 @@ public class Flag : MonoBehaviour
     public bool moveFlag = false;
     public Rigidbody2D rb;
 
+    //CHECK FLAG AUDIO IN PLAYER ANIMATION CONTROL
+
     private void Update()
     {
         if (moveFlag == true)

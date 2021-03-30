@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
 {
-    public AudioSource playerDie;
+    
     public AudioSource mainAudio;
     public LayerMask plant;
     
@@ -16,7 +16,7 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
             gameObject.GetComponent<BasicPlayerMovement>().isDead = true;
             Debug.Log(other.gameObject.tag);
             mainAudio.Stop();
-            playerDie.Play();
+            
             other.gameObject.GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<BasicPlayerMovement>().enabled = false;
             FindObjectOfType<PlayerDead>().StartDeathTime = true;
@@ -31,7 +31,7 @@ public class KillPlayerWhenCollideWithEnemy : MonoBehaviour
             gameObject.GetComponent<BasicPlayerMovement>().isDead = true;
             Debug.Log(other.gameObject.tag);
             mainAudio.Stop();
-            playerDie.Play();
+            
             other.gameObject.GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<BasicPlayerMovement>().enabled = false;
             FindObjectOfType<PlayerDead>().StartDeathTime = true;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pole : MonoBehaviour
 {
+    //CHECK FLAG AUDIO IN PLAYER ANIMATION CONTROL
 
     private void OnCollisionEnter2D(Collision2D other)
     {

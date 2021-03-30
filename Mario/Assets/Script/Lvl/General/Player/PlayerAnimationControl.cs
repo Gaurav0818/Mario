@@ -8,13 +8,16 @@ public class PlayerAnimationControl : MonoBehaviour
     float idleTimeCounter = 0f;
     bool idleCounterStart = false;
     public bool isFlag = false;
+    bool flagAudioPlayed = false; //FOR FLAG AUDIO CHECK (TO PLAY IT ONLY ONCE)
     public AudioSource flagAudio;
     void Update()
     {
-        if (isFlag == true)
+        if (isFlag == true && flagAudioPlayed == false)
         {
             flagAudio.Play();
             animator.SetBool("IsFlag", true);
+            flagAudioPlayed = true;
+
         }
         if(isFlag == false)
         {
