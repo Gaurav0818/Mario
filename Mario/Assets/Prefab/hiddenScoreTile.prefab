@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7255241024631205895}
   - component: {fileID: 7857568019372058533}
   - component: {fileID: -2495394838289130156}
+  - component: {fileID: -7049544369475386847}
   m_Layer: 12
   m_Name: hiddenScoreTile
   m_TagString: HiddenScoreTiles
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47058824, y: 0.47058824}
   m_EdgeRadius: 0
+--- !u!114 &-7049544369475386847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073040909053990767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e243789d2e0b545bcd8291d6b474b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

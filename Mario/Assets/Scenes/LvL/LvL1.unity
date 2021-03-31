@@ -20324,6 +20324,7 @@ GameObject:
   - component: {fileID: 955873256}
   - component: {fileID: 955873255}
   - component: {fileID: 955873254}
+  - component: {fileID: 955873262}
   - component: {fileID: 955873259}
   - component: {fileID: 955873260}
   - component: {fileID: 955873261}
@@ -20506,6 +20507,20 @@ MonoBehaviour:
   warningTime: 20
   mainTune: {fileID: 1157352948}
   warningAudio: {fileID: 2122505120}
+--- !u!114 &955873262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955873249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea92e94c748dc77419e2236d810aea85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedHiddenTiles: {fileID: 6353932563652035372, guid: 258dff05e345cb0498ee0a0128093e65,
+    type: 3}
 --- !u!1001 &956010317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44499,7 +44514,7 @@ PrefabInstance:
     - target: {fileID: 5578337259452821565, guid: fb2c35d577b961049ae7fadfc10517c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 87.74
       objectReference: {fileID: 0}
     - target: {fileID: 5578337259452821565, guid: fb2c35d577b961049ae7fadfc10517c1,
         type: 3}
